@@ -3,11 +3,58 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ApolloClient from "apollo-client"
+import {createHttpLink} from "apollo-link-http"
+import {setContext} from "apollo-link-context"
+import {ApolloProvider} from "@apollo/react-hooks"
+import {Store,Persistor} from "../src/redux/store"
+import {Provider} from "react-redux"
+import {PersistGate} from "redux-persist/integration/react"
+import {BrowserRouter as Router} from "react-router-dom"
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
+
+ 
+  
+
+
+const httplink= createHttpLink({
+  uri:"http://localhost:5000/graphql"
+
+})
+const authlink= setContext(()=>{
+const token=localStorage.getItem("jwtToken")
+return{
+headers:{
+  Authorization: token ? `Bearer ${token}` : ''
+
+}
+
+
+}
+
+
+})
+
+const client = new ApolloClient({
+link: authlink.concat(httplink),
+cache: new InMemoryCache()
+})
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  
+    <ApolloProvider client={client}>
+      <Provider store={Store}>
+        <Router>
+          <PersistGate persistor={Persistor}>
     <App />
-  </React.StrictMode>,
+    </PersistGate>
+    </Router>
+    </Provider>
+    </ApolloProvider>
+  
+  ,
   document.getElementById('root')
 );
 
