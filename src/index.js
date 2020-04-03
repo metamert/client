@@ -19,7 +19,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 
 const httplink= createHttpLink({
-  uri:"https://rocky-caverns-61000.herokuapp.com/"
+  uri:"https://git.heroku.com/rocky-caverns-61000.git/graphql"
 
 })
 const authlink= setContext(()=>{
