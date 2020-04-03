@@ -74,5 +74,6 @@
   "devDependencies": {},
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "proxy":"https://git.heroku.com/rocky-caverns-61000.git"
 }
