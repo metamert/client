@@ -4,6 +4,8 @@ query getpost($postId:ID!){
 getpost(postId:$postId){
 id
 createdAt
+body
+username
 comments{
 username
 body
@@ -58,12 +60,19 @@ commentsnumber
 export const DELETE_COMMENT=gql`
 mutation deletecomment($postid:ID!,$commentid:ID!){
 deletecomment(postid:$postid,commentid:$commentid){
-
+  body
 id
+username
+
+createdAt
 comments{
- body 
- username
-  id
+username
+body
+id
+}
+likes{
+id
+username
 }
 likesnumber
 commentsnumber
@@ -85,14 +94,20 @@ export const CREATE_COMMENT=gql`
 mutation createcomment($postid:ID!,$body:String!){
 
 createcomment(postid:$postid,body:$body){
-
-  id
-comments{
-  username
   body
-  id
-}
+id
+username
 
+createdAt
+comments{
+username
+body
+id
+}
+likes{
+id
+username
+}
 likesnumber
 commentsnumber
 }

@@ -9,7 +9,7 @@ export default function Commentcontainer({getcomments,querydata,id}) {
    
 
 
-
+console.log(querydata)
       
 
     return (

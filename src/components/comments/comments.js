@@ -50,17 +50,10 @@ const [deletecomments,{data}]=useMutation(DELETE_COMMENT,{
         </ListItemAvatar>
         <ListItemText
         style={{width:"100%"}}
-          primary="Oui Oui"
+          primary={username}
           secondary={
             <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-               {"nbr"}
-              </Typography>
+             
               {commentbody}
             </React.Fragment>
           }

@@ -89,8 +89,9 @@ const  SignInSide=(props)=> {
   update(_, result) {
     props.history.push("/home")
     console.log("başarılı sign in")
-    props.adduseraction1(result.data.Signin)
-    localStorage.setItem("jwtToken",result.data.Signin.token)
+    console.log(result.data.register)
+    props.adduseraction1(result.data.register)
+    localStorage.setItem("jwtToken",result.data.register.token)
     },
     onError(err){
       console.log("error oldu")
