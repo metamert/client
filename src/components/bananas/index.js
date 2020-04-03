@@ -27,9 +27,9 @@ function Banana() {
     ref.current.map(clearTimeout)
     ref.current = []
     set([])
-    ref.current.push(setTimeout(() => set(['Beğem', 'Yorum Yap', 'Paylaş']), 2000))
+    ref.current.push(setTimeout(() => set(['Beğem', 'Yorum Yap']), 2000))
     ref.current.push(setTimeout(() => set(['SHARE', 'LİKE']), 5000))
-    ref.current.push(setTimeout(() => set(['Hadi', 'BAŞLA']), 8000))
+    ref.current.push(setTimeout(() => set(['Get', 'Started']), 8000))
   }, [])
 
   useEffect(() => void reset(), [])
