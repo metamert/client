@@ -45,7 +45,7 @@ export default class App extends React.Component {
 
         <svg 
          
-        width="200" viewBox="0 0 22 22" >
+        width="160" viewBox="0 0 22 22" >
           <Gradient id="gradient-morph"   />
           <g fill="white">
             <Spring
